@@ -1,0 +1,39 @@
+{
+    "not_found_title": "Seite nicht gefunden",
+    "not_found_description": "Die gesuchte Seite existiert nicht.",
+    "not_found_button": "Zurück",
+    "user_clicks_count": "Von {amount} Benutzern diesen Monat ausgewählt",
+    "product_get_discount": "Erhalten Sie {discount}% Rabatt",
+    "navbar": {
+      "app_name": "SubMusic",
+      "language_label": "Sprache:",
+      "languages": {
+        "en": "English",
+        "de": "Deutsch"
+      }
+    },
+    "home": {
+      "title": "Willkommen bei SubMusic!",
+      "subtitle": "Ihr persönliches Aufzeichnungsverwaltungssystem"
+    },
+    "hero": {
+      "title": "Entdecke Deinen nächsten Lieblingssong",
+      "subtitle": "Schließe dich Tausenden von Musikliebhabern an, die neue Songs entdecken, Playlists erstellen und ihre musikalische Reise teilen",
+      "cta_button": "Jetzt Zusammen",
+      "cta_secondary": "Mehr Info",
+      "stats": {
+        "users": "Aktive Nutzer",
+        "songs": "Verfügbare Songs",
+        "playlists": "Erstellte Playlists"
+      }
+    },
+    "topAlbums": {
+      "title": "Top Alben",
+      "subtitle": "Entdecke die beliebtesten Alben von Top-Künstlern weltweit",
+      "listeners": "Hörer",
+      "albums_count": "Alben",
+      "updated_every": "Alle 5 Minuten aktualisiert",
+      "loading": "Alben werden geladen...",
+      "error": "Alben können derzeit nicht geladen werden"
+    }
+  }

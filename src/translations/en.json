@@ -1,0 +1,39 @@
+{
+    "not_found_title": "Not Found",
+    "not_found_description": "The page you are looking for does not exist.",
+    "not_found_button": "Go Back",
+    "user_clicks_count": "Picked by {amount} users this month",
+    "product_get_discount": "Get {discount}% off",
+    "navbar": {
+      "app_name": "SubMusic",
+      "language_label": "Language:",
+      "languages": {
+        "en": "English",
+        "de": "Deutsch"
+      }
+    },
+    "home": {
+      "title": "Welcome to SubMusic!",
+      "subtitle": "Your personal record management system"
+    },
+    "hero": {
+      "title": "Discover Your Next Favorite Song",
+      "subtitle": "Join thousands of music lovers discovering new tracks, creating playlists, and sharing their musical journey",
+      "cta_button": "Join Now",
+      "cta_secondary": "More Info",
+      "stats": {
+        "users": "Active Users",
+        "songs": "Songs Available",
+        "playlists": "Playlists Created"
+      }
+    },
+    "topAlbums": {
+      "title": "Top Albums",
+      "subtitle": "Discover the most popular albums from top artists worldwide",
+      "listeners": "listeners",
+      "albums_count": "albums",
+      "updated_every": "Updated every 5 minutes",
+      "loading": "Loading albums...",
+      "error": "Unable to load albums at the moment"
+    }
+  }
