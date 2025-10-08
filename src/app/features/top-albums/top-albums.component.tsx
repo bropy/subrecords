@@ -75,23 +75,23 @@ const TopAlbumsSection = () => {
 
   if (isLoading) {
     return (
-      <section className="py-20 bg-netflix-dark-gray">
-        <div className="container mx-auto px-6 lg:px-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-netflix-white mb-4">
-            {t('title')}
-          </h2>
-          <p className="text-netflix-text-gray text-lg">
-            {t('subtitle')}
-          </p>
-        </div>
+      <section className="py-20 bg-dark-blue-light">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-beige-100 mb-6">
+              {t('title')}
+            </h2>
+            <p className="text-beige-300 text-xl max-w-2xl mx-auto">
+              {t('subtitle')}
+            </p>
+          </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
-            {Array.from({ length: 8 }).map((_, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {Array.from({ length: 12 }).map((_, index) => (
               <div key={index} className="animate-pulse">
-                <div className="aspect-square bg-netflix-light-gray rounded-lg mb-3"></div>
-                <div className="h-4 bg-netflix-light-gray rounded mb-2"></div>
-                <div className="h-3 bg-netflix-light-gray rounded w-2/3"></div>
+                <div className="aspect-square bg-dark-blue-gray rounded-xl mb-4"></div>
+                <div className="h-4 bg-dark-blue-gray rounded mb-2"></div>
+                <div className="h-3 bg-dark-blue-gray rounded w-2/3"></div>
               </div>
             ))}
           </div>
@@ -102,16 +102,16 @@ const TopAlbumsSection = () => {
 
   if (error) {
     return (
-      <section className="py-20 bg-netflix-dark-gray">
-        <div className="container mx-auto px-6 lg:px-12">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-netflix-white mb-4">
-            {t('title')}
-          </h2>
-          <p className="text-netflix-text-gray">
-            {t('error')}
-          </p>
-        </div>
+      <section className="py-20 bg-dark-blue-light">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-beige-100 mb-6">
+              {t('title')}
+            </h2>
+            <p className="text-beige-300 text-xl">
+              {t('error')}
+            </p>
+          </div>
         </div>
       </section>
     )
@@ -120,19 +120,19 @@ const TopAlbumsSection = () => {
   const albumsList = albums || []
 
   return (
-    <section className="py-20 bg-netflix-dark-gray">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-netflix-white mb-4">
+    <section className="py-20 bg-dark-blue-light">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-beige-100 mb-6">
             {t('title')}
           </h2>
           
-          <p className="text-netflix-text-gray text-lg">
+          <p className="text-beige-300 text-xl max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {albumsList.map((album, index) => {
             const largeImage = album.image.find(img => img.size === 'large')?.['#text'] || 
                              album.image.find(img => img.size === 'medium')?.['#text'] || 
@@ -144,7 +144,7 @@ const TopAlbumsSection = () => {
                 href={`/${locale}/album/${album.mbid || album.name}`}
                 className="group cursor-pointer block"
               >
-                <div className="relative aspect-square bg-netflix-light-gray rounded-lg overflow-hidden mb-3 transition-transform group-hover:scale-105">
+                <div className="relative aspect-square bg-dark-blue-gray rounded-xl overflow-hidden mb-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
                   {largeImage ? (
                     <img 
                       src={largeImage} 
@@ -153,14 +153,14 @@ const TopAlbumsSection = () => {
                       loading="lazy"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-netflix-light-gray to-netflix-black">
-                      <Music className="w-12 h-12 text-netflix-text-gray" />
+                    <div className="w-full h-full flex items-center justify-center bg-dark-blue-gray">
+                      <Music className="w-12 h-12 text-beige-400" />
                     </div>
                   )}
                   
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
-                      <ExternalLink className="w-6 h-6 text-netflix-white" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity flex gap-3">
+                      <ExternalLink className="w-6 h-6 text-beige-100" />
                       
                       {/* Like Button */}
                       {isAuthenticated && (
@@ -173,8 +173,8 @@ const TopAlbumsSection = () => {
                           disabled={likingAlbum === (album.mbid || album.name)}
                           className={`w-6 h-6 transition-colors ${
                             isAlbumLiked(album.mbid || album.name)
-                              ? 'text-netflix-red fill-netflix-red'
-                              : 'text-netflix-white hover:text-netflix-red'
+                              ? 'text-red-500 fill-red-500'
+                              : 'text-beige-100 hover:text-red-500'
                           } ${likingAlbum === (album.mbid || album.name) ? 'opacity-50' : ''}`}
                         >
                           <Heart className="w-6 h-6" />
@@ -184,15 +184,14 @@ const TopAlbumsSection = () => {
                   </div>
                 </div>
 
-                <div className="space-y-1">
-                  <h3 className="font-semibold text-netflix-white text-sm leading-tight line-clamp-2 group-hover:text-netflix-red transition-colors">
+                <div className="space-y-2">
+                  <h3 className="font-semibold text-beige-100 text-sm leading-tight line-clamp-2 group-hover:text-red-400 transition-colors">
                     {album.name}
                   </h3>
                   
-                  <p className="text-xs text-netflix-text-gray line-clamp-1">
+                  <p className="text-xs text-beige-400 line-clamp-1">
                     {'artist' in album ? String(album.artist) : 'Unknown Artist'}
                   </p>
-                  
                 </div>
               </Link>
             )
@@ -200,15 +199,15 @@ const TopAlbumsSection = () => {
         </div>
 
         {albumsList.length > 0 && (
-          <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-6 bg-netflix-light-gray/20 rounded-lg px-6 py-4">
-              <div className="flex items-center gap-2 text-netflix-text-gray">
-                <Music className="w-4 h-4" />
-                <span className="text-sm">{albumsList.length} {t('albums_count')}</span>
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center gap-8 bg-dark-blue-gray/50 rounded-xl px-8 py-6 backdrop-blur-sm">
+              <div className="flex items-center gap-3 text-beige-400">
+                <Music className="w-5 h-5" />
+                <span className="text-sm font-medium">{albumsList.length} {t('albums_count')}</span>
               </div>
-              <div className="flex items-center gap-2 text-netflix-text-gray">
-                <Clock className="w-4 h-4" />
-                <span className="text-sm">{t('updated_every')}</span>
+              <div className="flex items-center gap-3 text-beige-400">
+                <Clock className="w-5 h-5" />
+                <span className="text-sm font-medium">{t('updated_every')}</span>
               </div>
             </div>
           </div>

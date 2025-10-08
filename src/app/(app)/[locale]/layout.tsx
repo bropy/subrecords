@@ -56,7 +56,7 @@ const RootLayout: FC<Readonly<IProps>> = async (props) => {
                   <AuthProvider>
                     <UiProvider>
                       <Navbar />
-                      <main>
+                      <main className="pt-16">
                         {children}
                       </main>
                     </UiProvider>
