@@ -8,6 +8,7 @@ export const lastFmKeys = {
   topAlbums: (artist: string, page?: number, limit?: number) => 
     [...lastFmKeys.all, 'topAlbums', artist, page, limit] as const,
   allTopAlbums: () => [...lastFmKeys.all, 'allTopAlbums'] as const,
+  albumDetail: (albumId: string) => [...lastFmKeys.all, 'albumDetail', albumId] as const,
 }
 
 // Hook for getting top albums from a specific artist

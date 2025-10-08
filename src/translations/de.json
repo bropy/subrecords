@@ -35,5 +35,43 @@
       "updated_every": "Alle 5 Minuten aktualisiert",
       "loading": "Alben werden geladen...",
       "error": "Alben können derzeit nicht geladen werden"
+    },
+    "profile": {
+      "title": "Mein Profil",
+      "subtitle": "Verwalte dein Konto, sieh dir deine Aktivitäten an und entdecke deinen Musikgeschmack",
+      "quick_stats": {
+        "title": "Schnelle Statistiken",
+        "liked_albums": "Gelikte Alben",
+        "member_since": "Mitglied seit",
+        "today": "Heute",
+        "account_status": "Kontostatus",
+        "active": "Aktiv"
+      },
+      "account_actions": {
+        "title": "Kontoaktionen",
+        "settings": "Kontoeinstellungen",
+        "privacy": "Datenschutzeinstellungen",
+        "sign_out": "Abmelden"
+      }
+    },
+    "likedAlbums": {
+      "title": "Deine gelikten Alben",
+      "sign_in_title": "Melde dich an, um deine gelikten Alben zu sehen",
+      "sign_in_subtitle": "Like Alben, um sie in deiner Sammlung zu speichern",
+      "empty_title": "Noch keine gelikten Alben",
+      "empty_subtitle": "Beginne Alben zu liken, um deine Sammlung aufzubauen"
+    },
+    "albumDetail": {
+      "back": "Zurück",
+      "not_found_title": "Album nicht gefunden",
+      "not_found_subtitle": "Das Album, nach dem du suchst, existiert nicht oder wurde entfernt.",
+      "go_back": "Zurück gehen",
+      "tracks": "Titel",
+      "released": "Veröffentlicht",
+      "listeners": "Hörer",
+      "play_count": "Wiedergaben",
+      "about_album": "Über dieses Album",
+      "track_list": "Titelliste",
+      "view_lastfm": "Auf Last.fm ansehen"
     }
   }

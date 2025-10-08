@@ -9,6 +9,10 @@ import { routing } from '@/pkg/libraries/locale/routing'
 import Navbar from '@/app/widgets/navbar/navbar.component'
 import { UiProvider } from '@/pkg/libraries/ui'
 import { RestApiProvider } from '@/pkg/libraries/rest-api'
+import { AuthProvider } from '@/app/shared/providers/auth-provider'
+import { GrowthBookProvider } from '@/app/shared/flags'
+import { MixpanelProvider } from '@/app/shared/analytics'
+import { SentryProvider } from '@/app/shared/error-tracking'
 import '@/config/styles/globals.css'
 
 interface IProps {
@@ -45,14 +49,22 @@ const RootLayout: FC<Readonly<IProps>> = async (props) => {
     <html lang={locale} dir={direction} suppressHydrationWarning>
       <body suppressHydrationWarning className="bg-netflix-black">
         <NextIntlClientProvider>
-          <RestApiProvider>
-            <UiProvider>
-              <Navbar />
-              <main>
-                {children}
-              </main>
-            </UiProvider>
-          </RestApiProvider>
+          <SentryProvider>
+            <MixpanelProvider>
+              <GrowthBookProvider>
+                <RestApiProvider>
+                  <AuthProvider>
+                    <UiProvider>
+                      <Navbar />
+                      <main>
+                        {children}
+                      </main>
+                    </UiProvider>
+                  </AuthProvider>
+                </RestApiProvider>
+              </GrowthBookProvider>
+            </MixpanelProvider>
+          </SentryProvider>
         </NextIntlClientProvider>
       </body>
     </html>

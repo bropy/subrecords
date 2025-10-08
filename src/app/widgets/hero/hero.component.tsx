@@ -2,9 +2,13 @@
 
 import { Button } from '@heroui/react'
 import { useTranslations } from 'next-intl'
+import { useFeatureFlag } from '@/app/shared/flags'
+import { trackEvent } from '@/app/shared/analytics'
+import { captureException, addBreadcrumb } from '@/app/shared/error-tracking'
 
 export default function HeroSection() {
   const t = useTranslations('hero')
+  const showMoreInfoButton = useFeatureFlag('button-on-hero', true)
 
   return (
     <section className="relative h-screen bg-netflix-black overflow-hidden">
@@ -27,19 +31,51 @@ export default function HeroSection() {
               <Button
                 size="lg"
                 className="bg-netflix-red hover:bg-red-700 text-netflix-white font-semibold px-8 py-3 text-lg rounded transition-colors"
+                onClick={() => trackEvent('Hero CTA Clicked', {
+                  button_type: 'primary',
+                  button_text: t('cta_button'),
+                  page: 'hero'
+                })}
               >
                 <span className="mr-2">▶</span>
                 {t('cta_button')}
               </Button>
 
-              <Button
-                size="lg"
-                variant="bordered"
-                className="border-2 border-netflix-text-gray text-netflix-white hover:bg-netflix-white hover:text-netflix-black font-semibold px-8 py-3 text-lg rounded transition-colors"
-              >
-                <span className="mr-2">ℹ</span>
-                {t('cta_secondary')}
-              </Button>
+              {showMoreInfoButton && (
+                <Button
+                  size="lg"
+                  variant="bordered"
+                  className="border-2 border-netflix-text-gray text-netflix-white hover:bg-netflix-white hover:text-netflix-black font-semibold px-8 py-3 text-lg rounded transition-colors"
+                  onClick={() => {
+                    // Track the button click
+                    trackEvent('Hero CTA Clicked', {
+                      button_type: 'secondary',
+                      button_text: t('cta_secondary'),
+                      page: 'hero',
+                      feature_flag: 'button-on-hero'
+                    })
+                    
+                    // Add breadcrumb for debugging
+                    addBreadcrumb('More Info button clicked', 'user-action', 'info')
+                    
+                    // Throw an exception to test Sentry error tracking
+                    try {
+                      throw new Error('More Info button clicked - Testing Sentry error tracking')
+                    } catch (error) {
+                      console.error('More Info button error:', error)
+                      captureException(error as Error, {
+                        button_type: 'secondary',
+                        button_text: t('cta_secondary'),
+                        page: 'hero',
+                        feature_flag: 'button-on-hero'
+                      })
+                    }
+                  }}
+                >
+                  <span className="mr-2">ℹ</span>
+                  {t('cta_secondary')}
+                </Button>
+              )}
             </div>
 
             {/* Stats */}

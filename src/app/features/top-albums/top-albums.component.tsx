@@ -1,14 +1,22 @@
 'use client'
 
-import { Music, Clock, ExternalLink } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { Music, Clock, ExternalLink, Heart } from 'lucide-react'
+import { useTranslations, useLocale } from 'next-intl'
 import { useQuery } from '@tanstack/react-query'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 import { lastFmKeys } from '@/pkg/libraries/rest-api'
 import { lastFmService } from '@/pkg/libraries/rest-api'
+import { useLikesStore } from '@/app/shared/store/likes.store'
+import { useAuthStore } from '@/app/shared/store/auth.store'
 
 const TopAlbumsSection = () => {
   const t = useTranslations('topAlbums')
+  const locale = useLocale()
+  const { isAuthenticated } = useAuthStore()
+  const { likeAlbum, unlikeAlbum, isAlbumLiked, fetchUserLikes } = useLikesStore()
+  const [likingAlbum, setLikingAlbum] = useState<string | null>(null)
   
   // Use the same query key as server-side prefetch
   // This will use the prefetched data from the server
@@ -25,6 +33,45 @@ const TopAlbumsSection = () => {
     retry: 1, // Reduce retries to minimize requests
     retryDelay: 5000, // Wait 5 seconds before retry
   })
+
+  // Initialize likes when component mounts and user is authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchUserLikes()
+    }
+  }, [isAuthenticated, fetchUserLikes])
+
+  const handleLikeToggle = async (album: { mbid?: string; name: string; artist?: string; image: Array<{ size: string; '#text': string }> }) => {
+    if (!isAuthenticated) {
+      alert('Please sign in to like albums')
+      return
+    }
+
+    const albumMbid = album.mbid || album.name // Use mbid or fallback to name
+    const isLiked = isAlbumLiked(albumMbid)
+    
+    setLikingAlbum(albumMbid)
+
+    try {
+      if (isLiked) {
+        await unlikeAlbum(albumMbid)
+      } else {
+        const albumData = {
+          album_mbid: albumMbid,
+          album_name: album.name,
+          artist_name: 'artist' in album ? String(album.artist) : 'Unknown Artist',
+          album_image_url: album.image.find((img: { size: string; '#text': string }) => img.size === 'large')?.['#text'] || 
+                          album.image.find((img: { size: string; '#text': string }) => img.size === 'medium')?.['#text'] || 
+                          album.image[0]?.['#text']
+        }
+        await likeAlbum(albumData)
+      }
+    } catch (error) {
+      console.error('Error toggling like:', error)
+    } finally {
+      setLikingAlbum(null)
+    }
+  }
 
   if (isLoading) {
     return (
@@ -92,9 +139,10 @@ const TopAlbumsSection = () => {
                              album.image[0]?.['#text']
             
             return (
-              <div 
+              <Link 
                 key={`${album.mbid}-${index}`}
-                className="group cursor-pointer"
+                href={`/${locale}/album/${album.mbid || album.name}`}
+                className="group cursor-pointer block"
               >
                 <div className="relative aspect-square bg-netflix-light-gray rounded-lg overflow-hidden mb-3 transition-transform group-hover:scale-105">
                   {largeImage ? (
@@ -111,8 +159,27 @@ const TopAlbumsSection = () => {
                   )}
                   
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
                       <ExternalLink className="w-6 h-6 text-netflix-white" />
+                      
+                      {/* Like Button */}
+                      {isAuthenticated && (
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            handleLikeToggle(album)
+                          }}
+                          disabled={likingAlbum === (album.mbid || album.name)}
+                          className={`w-6 h-6 transition-colors ${
+                            isAlbumLiked(album.mbid || album.name)
+                              ? 'text-netflix-red fill-netflix-red'
+                              : 'text-netflix-white hover:text-netflix-red'
+                          } ${likingAlbum === (album.mbid || album.name) ? 'opacity-50' : ''}`}
+                        >
+                          <Heart className="w-6 h-6" />
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -127,7 +194,7 @@ const TopAlbumsSection = () => {
                   </p>
                   
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>

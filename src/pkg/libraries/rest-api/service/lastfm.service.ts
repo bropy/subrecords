@@ -48,6 +48,47 @@ export interface LastFmTopArtistsResponse {
   }
 }
 
+export interface LastFmAlbumDetail {
+  name: string
+  mbid: string
+  url: string
+  image: Array<{
+    '#text': string
+    size: 'small' | 'medium' | 'large' | 'extralarge' | 'mega'
+  }>
+  artist: {
+    name: string
+    mbid: string
+    url: string
+  }
+  listeners: string
+  playcount: string
+  tracks: {
+    track: Array<{
+      name: string
+      duration: string
+      '@attr': {
+        rank: string
+      }
+    }> | {
+      name: string
+      duration: string
+      '@attr': {
+        rank: string
+      }
+    }
+  }
+  wiki: {
+    published: string
+    summary: string
+    content: string
+  }
+}
+
+export interface LastFmAlbumDetailResponse {
+  album: LastFmAlbumDetail
+}
+
 export interface LastFmError {
   error: number
   message: string
@@ -125,5 +166,26 @@ export const lastFmService = {
     } catch (error) {
       throw new Error(`Failed to fetch all top albums: ${error}`)
     }
+  },
+
+  async getAlbumDetail(albumId: string): Promise<LastFmAlbumDetail> {
+    const response = await lastFmFetcher.get('', {
+      searchParams: {
+        method: 'album.getinfo',
+        mbid: albumId,
+      },
+    })
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    const data = await response.json<LastFmAlbumDetailResponse | LastFmError>()
+
+    if ('error' in data) {
+      throw new Error(`Last.fm API error: ${data.message}`)
+    }
+
+    return data.album
   },
 }

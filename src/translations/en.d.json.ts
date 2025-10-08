@@ -38,6 +38,44 @@ declare const messages: {
       "updated_every": "Updated every 5 minutes",
       "loading": "Loading albums...",
       "error": "Unable to load albums at the moment"
+    },
+    "profile": {
+      "title": "My Profile",
+      "subtitle": "Manage your account, view your activity, and discover your music taste",
+      "quick_stats": {
+        "title": "Quick Stats",
+        "liked_albums": "Liked Albums",
+        "member_since": "Member Since",
+        "today": "Today",
+        "account_status": "Account Status",
+        "active": "Active"
+      },
+      "account_actions": {
+        "title": "Account Actions",
+        "settings": "Account Settings",
+        "privacy": "Privacy Settings",
+        "sign_out": "Sign Out"
+      }
+    },
+    "likedAlbums": {
+      "title": "Your Liked Albums",
+      "sign_in_title": "Sign in to see your liked albums",
+      "sign_in_subtitle": "Like albums to save them to your collection",
+      "empty_title": "No liked albums yet",
+      "empty_subtitle": "Start liking albums to build your collection"
+    },
+    "albumDetail": {
+      "back": "Back",
+      "not_found_title": "Album Not Found",
+      "not_found_subtitle": "The album you're looking for doesn't exist or has been removed.",
+      "go_back": "Go Back",
+      "tracks": "Tracks",
+      "released": "Released",
+      "listeners": "Listeners",
+      "play_count": "Play Count",
+      "about_album": "About This Album",
+      "track_list": "Track List",
+      "view_lastfm": "View on Last.fm"
     }
   };
 export default messages;
