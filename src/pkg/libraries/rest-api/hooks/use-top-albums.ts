@@ -29,14 +29,14 @@ export const useAllTopAlbums = () => {
   return useQuery({
     queryKey: lastFmKeys.allTopAlbums(),
     queryFn: () => lastFmService.getAllTopAlbums(),
-    staleTime: Infinity, // Data never becomes stale - use cached data indefinitely
-    gcTime: Infinity, // Keep in cache forever
-    refetchInterval: false, // Disable automatic refetching
-    refetchIntervalInBackground: false, // Disable background refetching
-    refetchOnWindowFocus: false, // Don't refetch when window gains focus
-    refetchOnMount: false, // Don't refetch when component mounts if data exists
-    refetchOnReconnect: false, // Don't refetch when reconnecting to internet
-    retry: 1, // Reduce retries to minimize requests
-    retryDelay: 5000, // Wait 5 seconds before retry
+    staleTime: 5 * 60 * 1000, 
+    gcTime: Infinity, 
+    refetchInterval: 5 * 60 * 1000, 
+    refetchIntervalInBackground: true, 
+    refetchOnWindowFocus: false, 
+    refetchOnMount: false, 
+    refetchOnReconnect: false, 
+    retry: 1, 
+    retryDelay: 5000, 
   })
 }
