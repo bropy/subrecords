@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import { useQuery } from '@tanstack/react-query'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import { lastFmKeys } from '@/pkg/libraries/rest-api'
 import { lastFmService } from '@/pkg/libraries/rest-api'
@@ -17,24 +18,21 @@ const TopAlbumsSection = () => {
   const { isAuthenticated } = useAuthStore()
   const { likeAlbum, unlikeAlbum, isAlbumLiked, fetchUserLikes } = useLikesStore()
   const [likingAlbum, setLikingAlbum] = useState<string | null>(null)
-  
-  // Use the same query key as server-side prefetch
-  // This will use the prefetched data from the server
-  const { data: albums, isLoading, error } = useQuery({
+
+  const { data: albums, isLoading } = useQuery({
     queryKey: lastFmKeys.allTopAlbums(),
     queryFn: () => lastFmService.getAllTopAlbums(),
-    staleTime: Infinity, // Data never becomes stale - use cached data indefinitely
-    gcTime: Infinity, // Keep in cache forever
-    refetchInterval: false, // Disable automatic refetching
-    refetchIntervalInBackground: false, // Disable background refetching
-    refetchOnWindowFocus: false, // Don't refetch when window gains focus
-    refetchOnMount: false, // Don't refetch when component mounts if data exists
-    refetchOnReconnect: false, // Don't refetch when reconnecting to internet
-    retry: 1, // Reduce retries to minimize requests
-    retryDelay: 5000, // Wait 5 seconds before retry
+    staleTime: Infinity, 
+    gcTime: Infinity, 
+    refetchInterval: false, 
+    refetchIntervalInBackground: false, 
+    refetchOnWindowFocus: false, 
+    refetchOnMount: false, 
+    refetchOnReconnect: false, 
+    retry: 1, 
+    retryDelay: 5000, 
   })
 
-  // Initialize likes when component mounts and user is authenticated
   useEffect(() => {
     if (isAuthenticated) {
       fetchUserLikes()
@@ -47,7 +45,7 @@ const TopAlbumsSection = () => {
       return
     }
 
-    const albumMbid = album.mbid || album.name // Use mbid or fallback to name
+    const albumMbid = album.mbid || album.name 
     const isLiked = isAlbumLiked(albumMbid)
     
     setLikingAlbum(albumMbid)
@@ -100,22 +98,6 @@ const TopAlbumsSection = () => {
     )
   }
 
-  if (error) {
-    return (
-      <section className="py-20 bg-dark-blue-light">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-beige-100 mb-6">
-              {t('title')}
-            </h2>
-            <p className="text-beige-300 text-xl">
-              {t('error')}
-            </p>
-          </div>
-        </div>
-      </section>
-    )
-  }
 
   const albumsList = albums || []
 
@@ -146,9 +128,11 @@ const TopAlbumsSection = () => {
               >
                 <div className="relative aspect-square bg-dark-blue-gray rounded-xl overflow-hidden mb-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
                   {largeImage ? (
-                    <img 
+                    <Image 
                       src={largeImage} 
                       alt={album.name}
+                      width={200}
+                      height={200}
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />

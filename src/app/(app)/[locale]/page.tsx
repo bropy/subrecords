@@ -17,19 +17,16 @@ const HomePage: FC<Readonly<IProps>> = async (props) => {
   
   setRequestLocale(locale)
 
-  // Create query client for server-side data fetching
   const queryClient = getQueryClient()
 
-  // Prefetch the top albums data on the server
   try {
     await queryClient.prefetchQuery({
       queryKey: lastFmKeys.allTopAlbums(),
       queryFn: () => lastFmService.getAllTopAlbums(),
-      staleTime: Infinity, // Data never becomes stale
+      staleTime: Infinity,
     })
   } catch (error) {
     console.error('Failed to prefetch top albums:', error)
-    // Continue without prefetched data - component will handle loading state
   }
 
   const dehydratedState = dehydrate(queryClient)

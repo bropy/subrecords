@@ -3,7 +3,6 @@ import { Sentry } from './sentry.client'
 // Error tracking utilities
 export { Sentry } from './sentry.client'
 export { SentryProvider } from './sentry.provider'
-export { SentryTest } from './sentry-test.component'
 
 // Common error tracking functions
 export const captureException = (error: Error, context?: Record<string, string | number | boolean>) => {

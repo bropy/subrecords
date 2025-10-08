@@ -6,13 +6,14 @@ import { useFeatureFlag } from '@/app/shared/flags'
 import { trackEvent } from '@/app/shared/analytics'
 import { captureException, addBreadcrumb } from '@/app/shared/error-tracking'
 
+// component
 export default function HeroSection() {
   const t = useTranslations('hero')
   const showMoreInfoButton = useFeatureFlag('button-on-hero', true)
 
+  // return
   return (
     <section className="relative h-[70vh] bg-dark-blue flex items-center overflow-hidden">
-      {/* Hero Background Image */}
       <div className="absolute inset-0">
         <div 
           className="w-full h-full bg-cover bg-center bg-no-repeat"
@@ -20,12 +21,10 @@ export default function HeroSection() {
             backgroundImage: `url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
           }}
         />
-        {/* Faded dark blue overlay for text readability */}
         <div className="absolute inset-0 bg-dark-blue/80"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-dark-blue/90 via-dark-blue/70 to-dark-blue/50"></div>
       </div>
       
-      {/* Background Pattern with more red variations */}
       <div className="absolute inset-0 opacity-15">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,0,0.2),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(230,0,35,0.15),transparent_50%)]"></div>
@@ -35,19 +34,15 @@ export default function HeroSection() {
       <div className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-4xl">
-            {/* Main Content */}
             <div className="space-y-6">
-              {/* Title */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-netflix-white leading-tight tracking-tight drop-shadow-lg">
                 {t('title')}
               </h1>
 
-              {/* Subtitle */}
               <p className="text-lg md:text-xl text-beige-200 max-w-2xl leading-relaxed drop-shadow-md">
                 {t('subtitle')}
               </p>
 
-              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <Button
                   size="lg"
@@ -67,7 +62,6 @@ export default function HeroSection() {
                     variant="bordered"
                     className="border-2 border-red-500 text-red-400 bg-transparent font-bold px-8 py-4 text-lg rounded-lg transition-all duration-200 hover:bg-red-600 hover:text-white hover:scale-105 shadow-xl"
                     onClick={() => {
-                      // Track the button click
                       trackEvent('Hero CTA Clicked', {
                         button_type: 'secondary',
                         button_text: t('cta_secondary'),
@@ -75,10 +69,8 @@ export default function HeroSection() {
                         feature_flag: 'button-on-hero'
                       })
                       
-                      // Add breadcrumb for debugging
                       addBreadcrumb('More Info button clicked', 'user-action', 'info')
                       
-                      // Throw an exception to test Sentry error tracking
                       try {
                         throw new Error('More Info button clicked - Testing Sentry error tracking')
                       } catch (error) {
@@ -98,7 +90,6 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Stats Section */}
             <div className="mt-12 pt-6 border-t border-beige-800/30">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">

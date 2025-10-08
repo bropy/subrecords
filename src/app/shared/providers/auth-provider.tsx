@@ -14,12 +14,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
 
   useEffect(() => {
-    // Initialize auth first
     initialize()
   }, [initialize])
 
   useEffect(() => {
-    // Initialize likes when user is authenticated
     if (isAuthenticated) {
       fetchUserLikes()
     }

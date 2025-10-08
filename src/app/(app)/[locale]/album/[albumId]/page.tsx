@@ -6,19 +6,17 @@ import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 
 import { lastFmKeys } from '@/pkg/libraries/rest-api'
 import { lastFmService } from '@/pkg/libraries/rest-api'
-import { AlbumDetailClient } from '@/app/(app)/[locale]/album/[albumId]/album-detail-client'
+import { AlbumDetailModule } from '@/app/modules/album/album-detail-client.component'
 
+// interface
 interface IProps {
   params: Promise<{ locale: Locale; albumId: string }>
 }
 
-// Generate static params for popular albums
 export async function generateStaticParams() {
   try {
-    // Get top albums to pre-render
     const albums = await lastFmService.getAllTopAlbums()
     
-    // Return params for each album
     return albums.map((album) => ({
       albumId: album.mbid || album.name,
     }))
@@ -28,27 +26,26 @@ export async function generateStaticParams() {
   }
 }
 
-// Enable ISR (Incremental Static Regeneration)
-export const revalidate = 300 // Revalidate every 5 minutes
+export const revalidate = 300
 
+// component
 const AlbumDetailPage: FC<Readonly<IProps>> = async (props) => {
   const { locale, albumId } = await props.params
   setRequestLocale(locale)
 
-  // Create a new QueryClient for server-side prefetching
   const queryClient = new QueryClient()
 
-  // Prefetch album detail data on the server
   await queryClient.prefetchQuery({
     queryKey: lastFmKeys.albumDetail(albumId),
     queryFn: () => lastFmService.getAlbumDetail(albumId),
-    staleTime: Infinity, // Never refetch on client
-    gcTime: Infinity, // Keep in cache forever
+    staleTime: Infinity,
+    gcTime: Infinity,
   })
 
+  // return
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <AlbumDetailClient albumId={albumId} />
+      <AlbumDetailModule albumId={albumId} />
     </HydrationBoundary>
   )
 }

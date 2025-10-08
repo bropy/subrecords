@@ -11,7 +11,6 @@ interface LikesState {
   unlikeAlbum: (albumMbid: string) => Promise<{ error: Error | null }>
   isAlbumLiked: (albumMbid: string) => boolean
   fetchUserLikes: () => Promise<void>
-  getAlbumLikeCount: (albumMbid: string) => Promise<number>
 }
 
 export const useLikesStore = create<LikesState>()(
@@ -36,7 +35,6 @@ export const useLikesStore = create<LikesState>()(
             return { error }
           }
 
-          // If successfully liked, add to local state
           if (data) {
             set((state) => ({
               likes: [...state.likes, data]
@@ -67,7 +65,6 @@ export const useLikesStore = create<LikesState>()(
             return { error }
           }
 
-          // Remove from local state
           set((state) => ({
             likes: state.likes.filter(like => like.album_mbid !== albumMbid)
           }))
@@ -108,22 +105,6 @@ export const useLikesStore = create<LikesState>()(
           console.error('Error fetching user likes:', error)
         } finally {
           set({ isLoading: false })
-        }
-      },
-
-      getAlbumLikeCount: async (albumMbid: string) => {
-        try {
-          const { count, error } = await likesService.getAlbumLikeCount(albumMbid)
-          
-          if (error) {
-            console.error('Error getting album like count:', error)
-            return 0
-          }
-
-          return count
-        } catch (error) {
-          console.error('Error getting album like count:', error)
-          return 0
         }
       },
     }),

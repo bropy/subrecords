@@ -3,9 +3,7 @@ import { mixpanel } from './mixpanel.client'
 // Analytics utilities for tracking user interactions
 export { mixpanel } from './mixpanel.client'
 export { MixpanelProvider } from './mixpanel.provider'
-export { AnalyticsTest } from './analytics-test.component'
 
-// Common tracking functions
 export const trackEvent = (eventName: string, properties?: Record<string, unknown>) => {
   if (typeof window !== 'undefined') {
     mixpanel.track(eventName, {

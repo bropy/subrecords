@@ -19,7 +19,6 @@ export interface AlbumLikeData {
 }
 
 class LikesService {
-  // Like an album
   async likeAlbum(userId: string, albumData: AlbumLikeData): Promise<{ data: Like | null; error: Error | null }> {
     try {
       const { data, error } = await supabase
@@ -35,9 +34,8 @@ class LikesService {
         .single()
 
       if (error) {
-        // If it's a duplicate key error, the album is already liked
         if (error.code === '23505') {
-          return { data: null, error: null } // Already liked, no error
+          return { data: null, error: null }
         }
         return { data: null, error }
       }
@@ -48,7 +46,6 @@ class LikesService {
     }
   }
 
-  // Unlike an album
   async unlikeAlbum(userId: string, albumMbid: string): Promise<{ error: Error | null }> {
     try {
       const { error } = await supabase
@@ -63,7 +60,6 @@ class LikesService {
     }
   }
 
-  // Check if album is liked
   async isAlbumLiked(userId: string, albumMbid: string): Promise<{ isLiked: boolean; error: Error | null }> {
     try {
       const { data, error } = await supabase
@@ -74,7 +70,7 @@ class LikesService {
         .single()
 
       if (error) {
-        if (error.code === 'PGRST116') { // No rows returned
+        if (error.code === 'PGRST116') {
           return { isLiked: false, error: null }
         }
         return { isLiked: false, error }
@@ -86,7 +82,6 @@ class LikesService {
     }
   }
 
-  // Get user's liked albums
   async getUserLikes(userId: string): Promise<{ data: Like[] | null; error: Error | null }> {
     try {
       const { data, error } = await supabase
@@ -105,7 +100,6 @@ class LikesService {
     }
   }
 
-  // Get like count for an album
   async getAlbumLikeCount(albumMbid: string): Promise<{ count: number; error: Error | null }> {
     try {
       const { count, error } = await supabase

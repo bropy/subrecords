@@ -2,7 +2,6 @@ import { defaultShouldDehydrateQuery, isServer, keepPreviousData, QueryClient } 
 
 let browserQueryClient: QueryClient | undefined = undefined
 
-// make query client
 const makeQueryClient = () => {
   return new QueryClient({
     defaultOptions: {
@@ -21,7 +20,6 @@ const makeQueryClient = () => {
   })
 }
 
-// query client
 export const getQueryClient = () => {
   if (isServer) {
     return makeQueryClient()

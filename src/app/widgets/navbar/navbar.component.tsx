@@ -8,6 +8,7 @@ import { routing } from '@/pkg/libraries/locale/routing'
 import { useAuthStore } from '@/app/shared/store/auth.store'
 import { trackEvent } from '@/app/shared/analytics'
 
+// component
 const Navbar: FC = () => {
   const locale = useLocale()
   const router = useRouter()
@@ -17,17 +18,14 @@ const Navbar: FC = () => {
   const { userProfile, isAuthenticated, isLoading, signOut } = useAuthStore()
 
   const handleLanguageChange = (newLocale: string) => {
-    // Remove the current locale from the pathname
     const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/'
     
-    // Track language change
     trackEvent('Language Changed', {
       from_locale: locale,
       to_locale: newLocale,
       page: pathWithoutLocale
     })
     
-    // Navigate to the new locale
     router.push(`/${newLocale}${pathWithoutLocale}`)
   }
 
@@ -46,20 +44,18 @@ const Navbar: FC = () => {
     }
   }
 
+  // return
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-blue/95 backdrop-blur-md border-b border-dark-blue-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <div className="flex items-center">
             <h1 className="text-2xl font-bold text-beige-100">
               SubMusic
             </h1>
           </div>
           
-          {/* Navigation Items */}
           <div className="flex items-center space-x-6">
-            {/* Auth Button */}
             {!isLoading && (
               <button
                 onClick={handleAuthClick}
@@ -77,7 +73,6 @@ const Navbar: FC = () => {
               </button>
             )}
 
-            {/* Loading State */}
             {isLoading && (
               <div className="flex items-center gap-2 px-6 py-2 bg-dark-blue-gray text-beige-400 rounded-lg">
                 <div className="w-4 h-4 border-2 border-beige-400 border-t-transparent rounded-full animate-spin"></div>
@@ -85,7 +80,6 @@ const Navbar: FC = () => {
               </div>
             )}
 
-            {/* User Info */}
             {isAuthenticated && userProfile && (
               <button
                 onClick={() => {
@@ -101,7 +95,6 @@ const Navbar: FC = () => {
               </button>
             )}
 
-            {/* Language Selector */}
             <div className="flex items-center space-x-2">
               <span className="text-sm text-beige-400">{t('language_label')}</span>
               <select

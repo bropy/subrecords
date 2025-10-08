@@ -3,6 +3,7 @@
 import { User, Calendar, Mail } from 'lucide-react'
 import { useAuthStore } from '@/app/shared/store/auth.store'
 
+// component
 export const UserProfileCard = () => {
   const { userProfile, isAuthenticated } = useAuthStore()
 
@@ -10,6 +11,7 @@ export const UserProfileCard = () => {
     return null
   }
 
+  // return
   return (
     <div className="bg-netflix-dark-gray p-6 rounded-lg shadow-lg">
       <div className="flex items-center gap-3 mb-4">
