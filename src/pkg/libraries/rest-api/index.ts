@@ -1,6 +1,5 @@
 export { restApiFetcher } from './fetcher'
-export { lastFmFetcher } from './fetcher/lastfm.fetcher'
+export { musicApiFetcher } from './fetcher/music-api.fetcher'
 export { default as RestApiProvider } from './rest-api.provider'
 export { getQueryClient } from './service'
-export { lastFmService } from './service/lastfm.service'
-export { useTopAlbums, useAllTopAlbums, lastFmKeys } from './hooks/use-top-albums'
+export * from './service/music.service'

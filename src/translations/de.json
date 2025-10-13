@@ -73,5 +73,28 @@
       "about_album": "Über dieses Album",
       "track_list": "Titelliste",
       "view_lastfm": "Auf Last.fm ansehen"
+    },
+    "album": {
+      "back_to_home": "Zurück zur Startseite",
+      "tracks": "Titel",
+      "listen_now": "Jetzt Anhören",
+      "add_to_library": "Zur Bibliothek hinzufügen",
+      "price": "Preis",
+      "release_date": "Veröffentlichungsdatum",
+      "comments_title": "Kommentare",
+      "add_comment": "Kommentar hinzufügen",
+      "no_comments": "Noch keine Kommentare"
+    },
+    "home": {
+      "albums": {
+        "title": "Top",
+        "title_highlight": "Alben",
+        "subtitle": "Entdecke die beliebtesten Alben im Moment"
+      },
+      "viewed": {
+        "title": "Zuletzt",
+        "title_highlight": "Angesehen",
+        "subtitle": "Alben, die du kürzlich angesehen hast"
+      }
     }
   }

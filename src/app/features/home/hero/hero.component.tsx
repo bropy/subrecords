@@ -2,9 +2,9 @@
 
 import { Button } from '@heroui/react'
 import { useTranslations } from 'next-intl'
-import { useFeatureFlag } from '@/app/shared/flags'
-import { trackEvent } from '@/app/shared/analytics'
-import { captureException, addBreadcrumb } from '@/app/shared/error-tracking'
+import { useFeatureFlag } from '@/app/integrations/growthbook'
+import { trackEvent } from '@/app/integrations/mixpanel'
+import { captureException, addBreadcrumb } from '@/app/integrations/sentry'
 
 // component
 export default function HeroSection() {

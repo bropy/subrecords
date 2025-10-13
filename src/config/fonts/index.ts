@@ -1,0 +1,1 @@
+export { mainFont } from './font'

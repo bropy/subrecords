@@ -1,0 +1,125 @@
+{
+  "not_found_title": "Not Found",
+  "not_found_description": "The page you are looking for does not exist.",
+  "not_found_button": "Go Back",
+  "not_found_subcategories_description": "No products found.",
+  "back_to_top": "Back to top",
+  "user_clicks_count": "Picked by {amount} users this month",
+  "more_info": "More info",
+  "less_info": "Less info",
+  "show_more": "Show more",
+  "show_less": "Show less",
+  "product_price_btn": "Check Price",
+  "product_get_discount": "Get {discount}% off",
+  "product_estimated_price": "Estimated Price",
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "get_started": "Get Started"
+  },
+  "footer": {
+    "description": "Building amazing experiences for the modern web. Your trusted partner in digital innovation.",
+    "copyright": "© {year} Your Company. All rights reserved.",
+    "product": {
+      "title": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "documentation": "Documentation"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About",
+      "blog": "Blog",
+      "careers": "Careers"
+    },
+    "support": {
+      "title": "Support",
+      "help_center": "Help Center",
+      "contact": "Contact",
+      "faq": "FAQ"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "home": {
+    "hero": {
+      "title_part1": "Discover Your",
+      "title_highlight": "Sound",
+      "subtitle": "Search millions of tracks, discover new artists, and create your perfect playlist. Your music journey starts here.",
+      "search_placeholder": "Search for tracks, artists, albums...",
+      "search_button": "Search",
+      "explore_button": "Explore Now",
+      "trending_button": "See What's Trending",
+      "stat_tracks": "Tracks",
+      "stat_artists": "Artists",
+      "stat_playlists": "Playlists",
+      "stat_users": "Active Users"
+    },
+    "trending": {
+      "title": "Trending Now",
+      "subtitle": "The hottest tracks everyone is listening to right now",
+      "view_all": "View All Trending",
+      "trending": "Trending"
+    },
+    "features": {
+      "title": "Why Choose",
+      "title_highlight": "Us",
+      "subtitle": "Experience music like never before with our powerful features and seamless interface",
+      "feature1_title": "Vast Library",
+      "feature1_desc": "Access millions of songs from every genre, era, and corner of the world",
+      "feature2_title": "Lightning Fast",
+      "feature2_desc": "Find your favorite tracks in seconds with our powerful search engine",
+      "feature3_title": "High Quality",
+      "feature3_desc": "Stream music in crystal-clear quality up to 320kbps",
+      "feature4_title": "Multi-Device",
+      "feature4_desc": "Seamlessly switch between your phone, tablet, and desktop",
+      "feature5_title": "Smart Playlists",
+      "feature5_desc": "AI-powered recommendations based on your listening habits",
+      "feature6_title": "Global Access",
+      "feature6_desc": "Enjoy your music anywhere, anytime, with offline mode"
+    },
+    "cta": {
+      "title": "Ready to Start Your",
+      "title_highlight": "Music Journey?",
+      "subtitle": "Join millions of music lovers and discover your next favorite track today. It's free to start!",
+      "primary_button": "Get Started Free",
+      "secondary_button": "Learn More"
+    },
+    "albums": {
+      "title": "Top",
+      "title_highlight": "Albums",
+      "subtitle": "Discover the most popular albums right now"
+    },
+    "viewed": {
+      "title": "Recently Viewed"
+    }
+  },
+  "album": {
+    "back_to_home": "Back to Home",
+    "tracks": "tracks",
+    "listen_now": "Listen Now",
+    "add_to_library": "Add to Library",
+    "price": "Price",
+    "release_date": "Release Date",
+    "comment_form": {
+      "title": "Leave a Comment",
+      "name_label": "Your Name",
+      "name_placeholder": "Enter your name",
+      "title_label": "Comment Title",
+      "title_placeholder": "Give your comment a title",
+      "content_label": "Your Comment",
+      "content_placeholder": "Share your thoughts about this album...",
+      "cancel_button": "Cancel",
+      "submit_button": "Post Comment"
+    },
+    "comments_list": {
+      "title": "Comments",
+      "loading": "Loading comments...",
+      "no_comments": "No comments yet. Be the first to comment!"
+    }
+  }
+}

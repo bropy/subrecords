@@ -1,11 +1,10 @@
 'use client'
 
-import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import type { FC, ReactNode } from 'react'
 
-import { HeroUIProvider } from '@heroui/system'
 import { ToastProvider } from '@heroui/toast'
-
+import { HeroUIProvider } from '@heroui/system'
+import { ThemeProvider as NextThemesProvider } from 'next-themes'
 // interface
 interface IProps {
   children: ReactNode

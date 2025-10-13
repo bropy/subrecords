@@ -1,0 +1,1 @@
+export type { Album, Comment } from '@/app/entities/models/comment.model'

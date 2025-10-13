@@ -73,5 +73,28 @@
       "about_album": "About This Album",
       "track_list": "Track List",
       "view_lastfm": "View on Last.fm"
+    },
+    "album": {
+      "back_to_home": "Back to Home",
+      "tracks": "tracks",
+      "listen_now": "Listen Now",
+      "add_to_library": "Add to Library",
+      "price": "Price",
+      "release_date": "Release Date",
+      "comments_title": "Comments",
+      "add_comment": "Add Comment",
+      "no_comments": "No comments yet"
+    },
+    "home": {
+      "albums": {
+        "title": "Top",
+        "title_highlight": "Albums",
+        "subtitle": "Discover the most popular albums right now"
+      },
+      "viewed": {
+        "title": "Recently",
+        "title_highlight": "Viewed",
+        "subtitle": "Albums you've recently checked out"
+      }
     }
   }

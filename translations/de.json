@@ -1,0 +1,125 @@
+{
+  "not_found_title": "Nicht gefunden",
+  "not_found_description": "Die Seite, die Sie suchen, existiert nicht.",
+  "not_found_button": "Zurück",
+  "not_found_subcategories_description": "Keine Produkte gefunden.",
+  "back_to_top": "Zurück nach oben",
+  "user_clicks_count": "Diesen Monat von {amount} Nutzern ausgewählt",
+  "more_info": "Mehr Info",
+  "less_info": "Weniger Info",
+  "show_more": "Mehr anzeigen",
+  "show_less": "Weniger anzeigen",
+  "product_price_btn": "Preis prüfen",
+  "product_get_discount": "Spare {discount}%",
+  "product_estimated_price": "Geschätzter Preis",
+  "navbar": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
+    "contact": "Kontakt",
+    "get_started": "Loslegen"
+  },
+  "footer": {
+    "description": "Wir schaffen erstaunliche Erlebnisse für das moderne Web. Ihr vertrauenswürdiger Partner für digitale Innovation.",
+    "copyright": "© {year} Ihr Unternehmen. Alle Rechte vorbehalten.",
+    "product": {
+      "title": "Produkt",
+      "features": "Funktionen",
+      "pricing": "Preise",
+      "documentation": "Dokumentation"
+    },
+    "company": {
+      "title": "Unternehmen",
+      "about": "Über uns",
+      "blog": "Blog",
+      "careers": "Karriere"
+    },
+    "support": {
+      "title": "Support",
+      "help_center": "Hilfezentrum",
+      "contact": "Kontakt",
+      "faq": "FAQ"
+    },
+    "legal": {
+      "privacy": "Datenschutz",
+      "terms": "Nutzungsbedingungen"
+    }
+  },
+  "home": {
+    "hero": {
+      "title_part1": "Entdecken Sie Ihren",
+      "title_highlight": "Sound",
+      "subtitle": "Durchsuchen Sie Millionen von Titeln, entdecken Sie neue Künstler und erstellen Sie Ihre perfekte Playlist. Ihre Musikreise beginnt hier.",
+      "search_placeholder": "Suche nach Titeln, Künstlern, Alben...",
+      "search_button": "Suchen",
+      "explore_button": "Jetzt entdecken",
+      "trending_button": "Trends ansehen",
+      "stat_tracks": "Titel",
+      "stat_artists": "Künstler",
+      "stat_playlists": "Playlists",
+      "stat_users": "Aktive Nutzer"
+    },
+    "trending": {
+      "title": "Im Trend",
+      "subtitle": "Die heißesten Tracks, die gerade alle hören",
+      "view_all": "Alle Trends anzeigen",
+      "trending": "Im Trend"
+    },
+    "features": {
+      "title": "Warum",
+      "title_highlight": "wir?",
+      "subtitle": "Erleben Sie Musik wie nie zuvor mit unseren leistungsstarken Funktionen und nahtlosen Interface",
+      "feature1_title": "Riesige Bibliothek",
+      "feature1_desc": "Zugriff auf Millionen von Songs aus jedem Genre, jeder Ära und jeder Ecke der Welt",
+      "feature2_title": "Blitzschnell",
+      "feature2_desc": "Finden Sie Ihre Lieblingssongs in Sekunden mit unserer leistungsstarken Suchmaschine",
+      "feature3_title": "Hohe Qualität",
+      "feature3_desc": "Streamen Sie Musik in kristallklarer Qualität bis zu 320 kbps",
+      "feature4_title": "Multi-Gerät",
+      "feature4_desc": "Wechseln Sie nahtlos zwischen Telefon, Tablet und Desktop",
+      "feature5_title": "Intelligente Playlists",
+      "feature5_desc": "KI-gestützte Empfehlungen basierend auf Ihren Hörgewohnheiten",
+      "feature6_title": "Globaler Zugriff",
+      "feature6_desc": "Genießen Sie Ihre Musik überall und jederzeit mit Offline-Modus"
+    },
+    "cta": {
+      "title": "Bereit, Ihre",
+      "title_highlight": "Musikreise zu beginnen?",
+      "subtitle": "Schließen Sie sich Millionen von Musikliebhabern an und entdecken Sie noch heute Ihren nächsten Lieblingssong. Der Start ist kostenlos!",
+      "primary_button": "Kostenlos starten",
+      "secondary_button": "Mehr erfahren"
+    },
+    "albums": {
+      "title": "Top",
+      "title_highlight": "Alben",
+      "subtitle": "Entdecken Sie die beliebtesten Alben im Moment"
+    },
+    "viewed": {
+      "title": "Kürzlich angesehen"
+    }
+  },
+  "album": {
+    "back_to_home": "Zurück zur Startseite",
+    "tracks": "Titel",
+    "listen_now": "Jetzt anhören",
+    "add_to_library": "Zur Bibliothek hinzufügen",
+    "price": "Preis",
+    "release_date": "Veröffentlichungsdatum",
+    "comment_form": {
+      "title": "Kommentar hinterlassen",
+      "name_label": "Ihr Name",
+      "name_placeholder": "Geben Sie Ihren Namen ein",
+      "title_label": "Kommentartitel",
+      "title_placeholder": "Geben Sie Ihrem Kommentar einen Titel",
+      "content_label": "Ihr Kommentar",
+      "content_placeholder": "Teilen Sie Ihre Gedanken zu diesem Album...",
+      "cancel_button": "Abbrechen",
+      "submit_button": "Kommentar posten"
+    },
+    "comments_list": {
+      "title": "Kommentare",
+      "loading": "Kommentare werden geladen...",
+      "no_comments": "Noch keine Kommentare. Sei der Erste, der kommentiert!"
+    }
+  }
+}

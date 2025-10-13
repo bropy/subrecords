@@ -1,16 +1,22 @@
-'use client'
-
-import ContainerComponent from '@/app/shared/ui/container/container.component'
-import HeroSection from '@/app/features/home/hero/hero.component'
-import TopAlbumsSection from '@/app/features/top-albums/top-albums.component'
+import { type FC } from 'react'
+import {
+  HeroSectionComponent,
+  AlbumsSectionComponent,
+  CtaSectionComponent,
+  ViewedAlbumsSectionComponent,
+} from '@/app/features'
 
 // component
-export default function HomeModule() {
-  // return
+const HomeModule: FC = () => {
   return (
-    <ContainerComponent className="w-full">
-      <HeroSection />
-      <TopAlbumsSection />
-    </ContainerComponent>
+    <main className='min-h-screen bg-black'>
+      <HeroSectionComponent />
+      <AlbumsSectionComponent />
+      <CtaSectionComponent />
+      <ViewedAlbumsSectionComponent />
+    </main>
   )
 }
+
+export default HomeModule
+
