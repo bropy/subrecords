@@ -21,7 +21,7 @@ interface TopAlbumsResponse {
 }
 
 // fetch top albums
-const fetchTopAlbums = async (): Promise<Album[]> => {
+export const fetchTopAlbums = async (): Promise<Album[]> => {
   const response = await musicApiFetcher.get('search', {
     searchParams: {
       term: 'music',

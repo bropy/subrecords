@@ -83,7 +83,22 @@
       "release_date": "Veröffentlichungsdatum",
       "comments_title": "Kommentare",
       "add_comment": "Kommentar hinzufügen",
-      "no_comments": "Noch keine Kommentare"
+      "no_comments": "Noch keine Kommentare",
+      "comment_form": {
+        "title": "Kommentar hinterlassen",
+        "name_label": "Dein Name",
+        "name_placeholder": "Gib deinen Namen ein",
+        "title_label": "Kommentar-Titel",
+        "title_placeholder": "Worum geht es in deinem Kommentar?",
+        "content_label": "Dein Kommentar",
+        "content_placeholder": "Teile deine Gedanken zu diesem Album...",
+        "cancel_button": "Abbrechen",
+        "submit_button": "Kommentar absenden"
+      },
+      "comments_list": {
+        "title": "Kommentare",
+        "no_comments": "Noch keine Kommentare. Sei der Erste, der kommentiert!"
+      }
     },
     "home": {
       "albums": {

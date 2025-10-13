@@ -35,8 +35,7 @@ const HeroSectionComponent: FC = () => {
       
       throw new Error('This is a test error from Hero ')
     } catch (error) {
-      
-      const eventId = captureError(error as Error, {
+      captureError(error as Error, {
         section: 'Hero',
         action: 'Test Error Button',
         timestamp: new Date().toISOString(),

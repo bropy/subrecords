@@ -3,8 +3,9 @@ import { setRequestLocale } from 'next-intl/server'
 import { type Locale } from 'next-intl'
 import { notFound } from 'next/navigation'
 
-import { getQueryClient, albumBySlugQueryOptions } from '@/pkg/libraries/rest-api'
+import { getQueryClient, albumBySlugQueryOptions, fetchTopAlbums } from '@/pkg/libraries/rest-api'
 import { AlbumModule } from '@/app/modules'
+import { routing } from '@/pkg/libraries/locale/routing'
 
 // interface
 interface IProps {
@@ -12,6 +13,23 @@ interface IProps {
 }
 
 export const revalidate = 300 // 5 minutes
+
+export async function generateStaticParams() {
+  try {
+    const albums = await fetchTopAlbums()
+    const locales = routing.locales
+
+    return locales.flatMap((locale) =>
+      albums.map((album) => ({
+        locale,
+        slug: album.slug,
+      }))
+    )
+  } catch (error) {
+    console.error('Error generating static params for albums:', error)
+    return []
+  }
+}
 
 // component
 export default async function AlbumPage(props: Readonly<IProps>) {

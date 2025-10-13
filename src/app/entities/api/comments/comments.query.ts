@@ -15,9 +15,9 @@ const createComment = async (data: CreateCommentDto): Promise<CommentDto> => {
       json: data,
     })
     return response.json()
-  } catch (error: any) {
-    if (error.response) {
-      const errorData = await error.response.json().catch(() => ({}))
+  } catch (error) {
+    if (error instanceof Response) {
+      const errorData = await error.json().catch(() => ({}))
       throw new Error(errorData.details || errorData.error || 'Failed to create comment')
     }
     throw error

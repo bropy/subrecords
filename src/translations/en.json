@@ -83,7 +83,22 @@
       "release_date": "Release Date",
       "comments_title": "Comments",
       "add_comment": "Add Comment",
-      "no_comments": "No comments yet"
+      "no_comments": "No comments yet",
+      "comment_form": {
+        "title": "Leave a Comment",
+        "name_label": "Your Name",
+        "name_placeholder": "Enter your name",
+        "title_label": "Comment Title",
+        "title_placeholder": "What's your comment about?",
+        "content_label": "Your Comment",
+        "content_placeholder": "Share your thoughts about this album...",
+        "cancel_button": "Cancel",
+        "submit_button": "Submit Comment"
+      },
+      "comments_list": {
+        "title": "Comments",
+        "no_comments": "No comments yet. Be the first to comment!"
+      }
     },
     "home": {
       "albums": {
